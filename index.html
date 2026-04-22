@@ -1,366 +1,347 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ContaGamer - Loja de Contas de Jogos</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* Reset e variáveis */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        :root {
-            --primary-color: #1a1a1a;
-            --secondary-color: #333;
-            --accent-color: #ff4500;
-            --text-color: #fff;
-            --light-text: #ccc;
-            --shadow: 0 4px 8px rgba(0,0,0,0.5);
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: var(--primary-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-        /* Header */
-        header {
-            background-color: var(--secondary-color);
-            padding: 1rem;
-            text-align: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 100;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-        nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: var(--accent-color);
-        }
-        /* Banner */
-        .banner {
-            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 60px;
-        }
-        .banner h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        .banner p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        .btn {
-            background-color: var(--accent-color);
-            color: var(--text-color);
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s;
-            margin: 0 1rem;
-        }
-        .btn:hover {
-            background-color: #e63900;
-        }
-        /* Seções */
-        section {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        h2 {
-            text-align: center;
-            margin-bottom: 2rem;
-            font-size: 2.5rem;
-        }
-        /* Produtos */
-        .products {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        .product {
-            background-color: var(--secondary-color);
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s;
-        }
-        .product:hover {
-            transform: translateY(-10px);
-        }
-        .product h3 {
-            margin-bottom: 1rem;
-        }
-        .product p {
-            margin-bottom: 1rem;
-        }
-        .product .price {
-            font-size: 1.5rem;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-        }
-        /* Como Funciona */
-        .steps {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
-        .step {
-            text-align: center;
-            max-width: 200px;
-            margin: 1rem;
-        }
-        .step i {
-            font-size: 3rem;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-        }
-        /* Avaliações */
-        .reviews {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .review {
-            background-color: var(--secondary-color);
-            padding: 1rem;
-            margin: 1rem;
-            border-radius: 10px;
-            max-width: 300px;
-        }
-        .stars {
-            color: #ffd700;
-        }
-        /* Contato */
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            background-color: var(--secondary-color);
-            border: none;
-            border-radius: 5px;
-            color: var(--text-color);
-        }
-        /* Footer */
-        footer {
-            background-color: var(--secondary-color);
-            text-align: center;
-            padding: 2rem;
-        }
-        footer a {
-            color: var(--light-text);
-            margin: 0 1rem;
-        }
-        /* WhatsApp Flutuante */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #25d366;
-            color: white;
-            padding: 1rem;
-            border-radius: 50%;
-            text-decoration: none;
-            font-size: 1.5rem;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s;
-        }
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
-        /* Responsivo */
-        @media (max-width: 768px) {
-            .banner h1 {
-                font-size: 2rem;
-            }
-            .banner p {
-                font-size: 1.2rem;
-            }
-            nav ul {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            .products {
-                grid-template-columns: 1fr;
-            }
-            .steps {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Agência VerdeViva — Turismo de Natureza</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <meta name="description" content="Passeios, pacotes e experiências de natureza. Reservas via WhatsApp.">
+  <style>
+    :root{
+      --green:#1B4332;
+      --soft-green:#2D6A4F;
+      --soft-blue:#6ea8d6;
+      --beige:#f5f2ea;
+      --muted:#8a8f91;
+      --card:#ffffff;
+      --glass: rgba(255,255,255,0.6);
+      --max-width:1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{font-family:Inter,system-ui,Arial,sans-serif;margin:0;color:#123;line-height:1.5;background:linear-gradient(180deg,var(--green),var(--soft-green))}
+    a{color:inherit;text-decoration:none}
+    /* Header */
+    header{background:transparent;padding:1rem .75rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:40}
+    .container{max-width:var(--max-width);margin:0 auto;width:100%;padding:0 .75rem}
+    .brand{display:flex;align-items:center;gap:.75rem}
+    .logo{display:inline-flex;align-items:center;gap:.5rem}
+    .logo svg{width:44px;height:44px}
+    .logo-title{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--beige)}
+    nav{display:flex;gap:.75rem;align-items:center}
+    nav a{padding:.5rem .6rem;border-radius:10px;font-weight:600;color:rgba(255,255,255,0.92)}
+    nav a.cta{background:var(--green);color:#fff}
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr;gap:1rem;align-items:center;padding:2.25rem 0}
+    .hero-inner{display:flex;flex-direction:column;gap:1.25rem}
+    .hero-card{background:var(--card);border-radius:14px;padding:1.25rem;box-shadow:0 8px 30px rgba(31,60,42,0.08);display:flex;gap:1rem;align-items:center}
+    .hero-visual{border-radius:12px;overflow:hidden;flex:1;min-height:220px;display:block}
+    .hero-visual img{width:100%;height:100%;object-fit:cover;display:block}
+    .hero-content{flex:1;padding:.5rem 0}
+    h1{font-family:'Playfair Display',serif;margin:.25rem 0;font-size:1.6rem;color:var(--green)}
+    p.lead{color:var(--muted);margin:0}
+    .actions{display:flex;gap:.5rem;margin-top:.75rem}
+    .btn{background:var(--green);color:#fff;padding:.7rem 1rem;border-radius:10px;border:0;font-weight:700;cursor:pointer;transition:transform .18s ease,box-shadow .18s}
+    .btn.secondary{background:transparent;color:var(--green);border:1px solid rgba(47,122,69,0.12)}
+    .btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(47,122,69,0.12)}
+    /* Sections */
+    section{padding:1.5rem 0}
+    .columns{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+    .col-4{grid-column:span 4}
+    .col-8{grid-column:span 8}
+    .card{background:var(--card);padding:1rem;border-radius:12px;box-shadow:0 6px 20px rgba(20,30,20,0.06)}
+    .grid-cards{display:grid;grid-template-columns:repeat(1,1fr);gap:1rem}
+    .tour-card{display:flex;gap:1rem;align-items:center}
+    .tour-card img{width:110px;height:80px;object-fit:cover;border-radius:10px}
+    .price-tag{background:linear-gradient(90deg,var(--soft-green),var(--soft-blue));color:#fff;padding:.35rem .6rem;border-radius:8px;font-weight:700}
+    /* Packages */
+    .packages{display:flex;flex-direction:column;gap:1rem}
+    .pkg-list{display:flex;gap:1rem;flex-wrap:wrap}
+    .pkg{flex:1;min-width:200px;padding:1rem;border-radius:12px;background:linear-gradient(180deg,#fff,var(--glass));box-shadow:0 8px 24px rgba(15,40,20,0.06);border:1px solid rgba(120,140,120,0.06)}
+    .pkg h3{margin:.25rem 0}
+    /* Footer */
+    footer{padding:1.25rem 0;color:var(--beige);border-top:1px solid rgba(255,255,255,0.04)}
+    .socials{display:flex;gap:.6rem;align-items:center}
+    /* Floating WhatsApp */
+    .whatsapp{position:fixed;right:1rem;bottom:1rem;background:#25D366;color:#fff;padding:.65rem;border-radius:50%;box-shadow:0 10px 30px rgba(37,211,102,0.18);z-index:60;display:flex;align-items:center;justify-content:center}
+    .whatsapp a{color:#fff;display:inline-flex}
+    /* Modal */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(3,10,7,0.5);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:1rem;z-index:80}
+    .modal{width:100%;max-width:720px;background:linear-gradient(180deg,rgba(255,255,255,0.98),#fff);border-radius:14px;padding:1rem;box-shadow:0 18px 60px rgba(6,20,12,0.4);transform:translateY(20px);opacity:0;transition:all .28s}
+    .modal.show{transform:translateY(0);opacity:1}
+    .modal-head{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .field{display:flex;flex-direction:column;margin-top:.6rem}
+    label{font-size:.85rem;color:var(--muted);margin-bottom:.35rem}
+    input[type="number"],select{padding:.6rem .7rem;border-radius:10px;border:1px solid rgba(16,30,18,0.08)}
+    .inline{display:flex;gap:.6rem;align-items:center}
+    .summary{margin-top:.9rem;padding:.75rem;border-radius:10px;background:linear-gradient(180deg,#fbfdfa,#fff)}
+    .muted{color:var(--muted);font-size:.95rem}
+    .close-btn{background:transparent;border:0;font-size:1.2rem;cursor:pointer}
+    /* Responsiveness mobile-first */
+    @media(min-width:700px){
+      .hero{grid-template-columns:1fr 1fr}
+      .grid-cards{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(min-width:1000px){
+      .grid-cards{grid-template-columns:repeat(3,1fr)}
+    }
+    /* Fade-in on scroll */
+    .reveal{opacity:0;transform:translateY(10px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.visible{opacity:1;transform:none}
+  </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#products">Produtos</a></li>
-                <li><a href="#how-it-works">Como Funciona</a></li>
-                <li><a href="#about">Sobre</a></li>
-                <li><a href="#contact">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;">
+      <div class="brand">
+        <a class="logo" href="#">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1">
+                <stop offset="0" stop-color="#6aa878"/>
+                <stop offset="1" stop-color="#2f7a45"/>
+              </linearGradient>
+            </defs>
+            <path d="M32 6c8 4 18 14 18 26 0 10-8 18-18 26C22 50 14 42 14 32 14 18 24 10 32 6z" fill="url(#g1)" />
+            <path d="M22 30c6-2 12-6 18-10" stroke="#fff" stroke-width="1.5" fill="none" opacity=".2"/>
+          </svg>
+          <div>
+            <div class="logo-title">VerdeViva</div>
+            <div style="font-size:.75rem;color:var(--muted);margin-top:-4px">Turismo de Natureza</div>
+          </div>
+        </a>
+      </div>
+      <nav>
+        <a href="#pacotes">Pacotes</a>
+        <a href="#experiencias">Experiências</a>
+        <a href="#contato" class="cta">Contato</a>
+      </nav>
+    </div>
+  </header>
 
-    <section id="home" class="banner">
-        <h1>ContaGamer</h1>
-        <p>Contas premium com segurança e garantia</p>
-        <a href="#products" class="btn">Comprar Agora</a>
-        <a href="#products" class="btn">Ver Produtos</a>
-    </section>
-
-    <section id="products">
-        <h2>Produtos</h2>
-        <div class="products">
-            <div class="product">
-                <h3>Fortnite</h3>
-                <p>Conta nível 100 com skins raras e itens exclusivos.</p>
-                <div class="price">R$ 150,00</div>
-                <a href="#" class="btn">Comprar</a>
+  <main class="container">
+    <section class="hero">
+      <div class="hero-inner reveal">
+        <div class="hero-card">
+          <div style="flex:1">
+            <h1>Experiências de natureza que renovam o corpo e a mente</h1>
+            <p class="lead">Cachoeiras, trilhas e paisagens guiadas com segurança e conforto. Passeios personalizados para quem busca tranquilidade e aventura.</p>
+            <div class="actions">
+              <button class="btn" id="openReserve">Reservar</button>
+              <a class="btn secondary" href="#pacotes">Ver pacotes</a>
             </div>
-            <div class="product">
-                <h3>Roblox</h3>
-                <p>Conta com Robux ilimitados e acessórios premium.</p>
-                <div class="price">R$ 100,00</div>
-                <a href="#" class="btn">Comprar</a>
-            </div>
-            <div class="product">
-                <h3>Free Fire</h3>
-                <p>Conta diamante com armas lendárias e emotes.</p>
-                <div class="price">R$ 120,00</div>
-                <a href="#" class="btn">Comprar</a>
-            </div>
-            <div class="product">
-                <h3>League of Legends</h3>
-                <p>Conta com campeões e skins míticas.</p>
-                <div class="price">R$ 200,00</div>
-                <a href="#" class="btn">Comprar</a>
-            </div>
+          </div>
         </div>
-    </section>
-
-    <section id="how-it-works">
-        <h2>Como Funciona</h2>
-        <div class="steps">
-            <div class="step">
-                <i class="fas fa-shopping-cart"></i>
-                <h3>Escolha</h3>
-                <p>Selecione a conta desejada.</p>
+        <div style="display:flex;gap:.75rem">
+          <div class="card" style="flex:1">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <div>
+                <div class="muted">Passeios</div>
+                <div style="font-weight:700;font-size:1.05rem">A partir de <span class="price-tag">R$150</span></div>
+              </div>
+              <div>
+                <div class="muted">Pacotes</div>
+                <div style="font-weight:700;font-size:1.05rem">A partir de <span class="price-tag">R$700</span></div>
+              </div>
             </div>
-            <div class="step">
-                <i class="fas fa-credit-card"></i>
-                <h3>Pague</h3>
-                <p>Realize o pagamento via Pix ou cartão.</p>
-            </div>
-            <div class="step">
-                <i class="fas fa-shield-alt"></i>
-                <h3>Receba</h3>
-                <p>Entrega segura e garantia total.</p>
-            </div>
+            <p class="muted" style="margin-top:.6rem">Valores variam conforme número de pessoas, dias, tipo de experiência, hospedagem, alimentação e transporte. Quanto maior o grupo, menor o valor por pessoa.</p>
+          </div>
+          <div class="card" style="width:220px;display:flex;flex-direction:column;gap:.6rem;align-items:flex-start;justify-content:center">
+            <div class="muted">Contato rápido</div>
+            <a href="https://wa.me/5542991392071" class="btn" style="display:inline-flex;align-items:center;gap:.5rem">WhatsApp</a>
+            <a href="https://instagram.com/avilx.exe" target="_blank" class="muted">@avilx.exe</a>
+          </div>
         </div>
+      </div>
+      <div class="hero-visual reveal">
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=3a7b0f2d1b0b5a2b2a8c2a7f1e7d2c6e" alt="Cachoeira e natureza" loading="lazy">
+      </div>
     </section>
 
-    <section id="about">
-        <h2>Sobre a Loja</h2>
-        <p>A ContaGamer é uma loja especializada em contas de jogos premium. Estamos no mercado há 5 anos, comprometidos com a satisfação dos clientes e oferecendo produtos de alta qualidade com segurança garantida.</p>
-    </section>
-
-    <section id="payments">
-        <h2>Formas de Pagamento</h2>
-        <div class="steps">
-            <div class="step">
-                <i class="fab fa-pix"></i>
-                <h3>Pix</h3>
-            </div>
-            <div class="step">
-                <i class="fas fa-credit-card"></i>
-                <h3>Cartão</h3>
-            </div>
-            <div class="step">
-                <i class="fas fa-wallet"></i>
-                <h3>Outros</h3>
-            </div>
+    <section id="experiencias">
+      <h2 style="margin:.25rem 0;font-family:'Playfair Display',serif;color:var(--green)">Experiências</h2>
+      <div class="grid-cards">
+        <div class="card tour-card reveal">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=5a9a4d632d4e8fd2f2d9b9a0f3d4a1a2" alt="Trilha">
+          <div>
+            <div style="font-weight:700">Trilha guiada</div>
+            <div class="muted">Base R$180</div>
+          </div>
         </div>
-    </section>
-
-    <section id="reviews">
-        <h2>Avaliações</h2>
-        <div class="reviews">
-            <div class="review">
-                <div class="stars">★★★★★</div>
-                <p>"Compra rápida e segura. Recomendo!" - João S.</p>
-            </div>
-            <div class="review">
-                <div class="stars">★★★★☆</div>
-                <p>"Produto excelente, entrega perfeita." - Maria L.</p>
-            </div>
+        <div class="card tour-card reveal">
+          <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=7c8e2b3c1a1df1a2b3c4d5e6f7a8b9c0" alt="Montanhas">
+          <div>
+            <div style="font-weight:700">Montanhas & mirantes</div>
+            <div class="muted">Base R$250</div>
+          </div>
         </div>
-    </section>
-
-    <section id="contact">
-        <h2>Contato</h2>
-        <p>Telefone: (11) 99999-9999</p>
-        <p>WhatsApp: <a href="https://wa.me/5511999999999">Clique aqui</a></p>
-        <p>Email: contato@contagamer.com</p>
-        <form class="contact-form">
-            <input type="text" placeholder="Nome">
-            <input type="email" placeholder="Email">
-            <textarea placeholder="Mensagem"></textarea>
-            <button type="submit" class="btn">Enviar</button>
-        </form>
-        <div class="steps">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-discord"></i></a>
-            <a href="#"><i class="fab fa-telegram"></i></a>
+        <div class="card tour-card reveal">
+          <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=84b6f0b9e9e3b2d1c4c3b2a1d5c6f7e" alt="Cachoeira">
+          <div>
+            <div style="font-weight:700">Cachoeira e banho natural</div>
+            <div class="muted">Base R$150</div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <footer>
-        <p>&copy; 2023 ContaGamer. Todos os direitos reservados.</p>
-        <a href="#">Termos de Uso</a>
-        <a href="#">Política de Privacidade</a>
-    </footer>
+    <section id="pacotes">
+      <h2 style="font-family:'Playfair Display',serif;color:var(--green)">Pacotes Especiais</h2>
+      <div class="packages">
+        <div class="pkg-list">
+          <div class="pkg reveal">
+            <h3>2 a 3 dias</h3>
+            <div class="muted">R$700 a R$1.500</div>
+            <p style="margin-top:.5rem">Inclui hospedagem, alimentação, transporte e experiências completas.</p>
+          </div>
+          <div class="pkg reveal">
+            <h3>4 a 5 dias</h3>
+            <div class="muted">R$1.300 a R$2.000+</div>
+            <p style="margin-top:.5rem">Roteiros extensos com mais atividades e hospedagem diferenciada.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <a href="https://wa.me/5511999999999" class="whatsapp-float">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <section class="card" style="margin-top:1rem">
+      <h3 style="margin:0">Reservas</h3>
+      <p class="muted">Clique em "Reservar" para abrir o formulário de reserva. Todos os pagamentos são confirmados via WhatsApp.</p>
+      <div style="margin-top:.6rem">
+        <button class="btn" id="openReserve2">Reservar Agora</button>
+      </div>
+    </section>
 
-    <script>
-        // JavaScript simples para animações ou interações
-        document.querySelectorAll('.product').forEach(product => {
-            product.addEventListener('mouseenter', () => {
-                product.style.transform = 'translateY(-10px)';
-            });
-            product.addEventListener('mouseleave', () => {
-                product.style.transform = 'translateY(0)';
-            });
-        });
-    </script>
+    <section id="contato" style="margin-top:1rem" class="reveal">
+      <div class="card">
+        <h3>Contato</h3>
+        <p class="muted">WhatsApp: <a href="https://wa.me/5542991392071">42 99139-2071</a> — Instagram: <a href="https://instagram.com/avilx.exe" target="_blank">@avilx.exe</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center">
+      <div class="muted">© <strong>VerdeViva</strong> — Turismo de Natureza</div>
+      <div class="socials">
+        <a href="https://instagram.com/avilx.exe" target="_blank" aria-label="Instagram">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z" stroke="#6aa878" stroke-width="1.4" fill="none"></path><circle cx="12" cy="12" r="3" stroke="#6aa878" stroke-width="1.4" fill="none"></circle></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <a class="whatsapp" aria-label="WhatsApp" href="https://wa.me/5542991392071" target="_blank">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M21 12.08a9 9 0 10-2.6 6.09L21 21l-1.83-5.46A8.94 8.94 0 0021 12.08z" fill="#fff" opacity=".06"/><path d="M20.5 3.5L3.5 20.5" stroke="#fff" stroke-opacity="0"/><path d="M17.472 14.382c-.297-.149-1.758-.868-2.03-.967-.273-.099-.472-.148-.672.148-.198.297-.768.967-.942 1.166-.173.198-.347.223-.644.074-.297-.148-1.255-.462-2.39-1.475-.884-.788-1.48-1.76-1.653-2.058-.173-.297-.018-.458.13-.606.134-.133.298-.347.447-.52.149-.173.198-.297.298-.495.099-.198.05-.371-.025-.52-.074-.148-.672-1.612-.92-2.206-.242-.579-.487-.5-.672-.51l-.573-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.064 2.876 1.213 3.075c.149.198 2.095 3.2 5.076 4.487 2.982 1.289 2.98.86 3.517.807.538-.052 1.758-.718 2.006-1.412.248-.694.248-1.289.173-1.412-.074-.124-.272-.198-.57-.347z" fill="#fff"/></svg>
+  </a>
+
+  <div class="modal-backdrop" id="modal">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <div>
+          <h2 id="modalTitle" style="margin:0;font-family:'Playfair Display',serif;color:var(--green)">Reservar Passeio</h2>
+          <div class="muted">Preencha os dados. Valor calculado automaticamente.</div>
+        </div>
+        <div style="display:flex;gap:.5rem;align-items:center">
+          <button class="close-btn" id="closeModal">✕</button>
+        </div>
+      </div>
+      <div style="margin-top:.6rem">
+        <div class="field">
+          <label for="tour">Selecionar passeio</label>
+          <select id="tour">
+            <option value="150">Cachoeira — R$150</option>
+            <option value="180">Trilha Guiada — R$180</option>
+            <option value="250">Montanhas & Mirantes — R$250</option>
+            <option value="320">Expedição — R$320</option>
+          </select>
+        </div>
+        <div class="inline" style="margin-top:.6rem">
+          <div style="flex:1" class="field">
+            <label for="people">Número de pessoas</label>
+            <input id="people" type="number" min="1" value="2">
+          </div>
+          <div style="width:120px" class="field">
+            <label for="days">Dias</label>
+            <input id="days" type="number" min="1" value="1">
+          </div>
+        </div>
+        <div class="field">
+          <label for="payment">Forma de pagamento</label>
+          <select id="payment">
+            <option value="pix">PIX</option>
+            <option value="card_credit">Cartão de crédito</option>
+            <option value="card_debit">Cartão de débito</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="tourDate">Data do passeio</label>
+          <input id="tourDate" type="date" required>
+        </div>
+        <div class="summary" id="summary">
+          <div class="muted">Resumo</div>
+          <div id="calc" style="margin-top:.5rem;font-weight:700">Valor estimado: R$0 — Por pessoa: R$0</div>
+          <div class="muted" style="margin-top:.5rem">Valor estimado. Confirmação final via WhatsApp.</div>
+          <div style="margin-top:.6rem">PIX: <strong>130-730-999.21</strong></div>
+        </div>
+        <div style="display:flex;gap:.5rem;margin-top:.75rem;justify-content:flex-end">
+          <button class="btn secondary" id="modalClose">Cancelar</button>
+          <button class="btn" id="finalize">Finalizar via WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Simple reveal on scroll
+    const obs = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+    // Modal logic
+    const modal = document.getElementById('modal');
+    const openBtns = [document.getElementById('openReserve'),document.getElementById('openReserve2')];
+    openBtns.forEach(b=>b && b.addEventListener('click',()=>{modal.style.display='flex';setTimeout(()=>document.querySelector('.modal').classList.add('show'),10)}));
+    document.getElementById('closeModal').addEventListener('click',closeModal);
+    document.getElementById('modalClose').addEventListener('click',closeModal);
+    modal.addEventListener('click',(e)=>{if(e.target===modal)closeModal()});
+    function closeModal(){document.querySelector('.modal').classList.remove('show');setTimeout(()=>modal.style.display='none',240)}
+
+    // Pricing logic
+    const tourSelect = document.getElementById('tour');
+    const peopleInput = document.getElementById('people');
+    const daysInput = document.getElementById('days');
+    const calcEl = document.getElementById('calc');
+    const finalizeBtn = document.getElementById('finalize');
+
+    function calc(){
+      const base = Number(tourSelect.value);
+      const people = Math.max(1,Number(peopleInput.value)||1);
+      const days = Math.max(1,Number(daysInput.value)||1);
+      // Discount tiers: maior o grupo, menor preço por pessoa
+      let discount=0;
+      if(people>=20) discount=0.20;
+      else if(people>=10) discount=0.15;
+      else if(people>=5) discount=0.10;
+      // price per person per day
+      const perPerson = Math.max(50, Math.round((base*(1-discount))*100)/100);
+      const total = Math.round(perPerson*people*days*100)/100;
+      calcEl.textContent = `Valor estimado: R$${total.toFixed(2).replace('.',',')} — Por pessoa: R$${(perPerson*days).toFixed(2).replace('.',',')}`;
+      return {base,people,days,perPerson,total,discount};
+    }
+    [tourSelect,peopleInput,daysInput].forEach(i=>i.addEventListener('input',calc));
+    calc();
+
+    // Finalize via WhatsApp
+    finalizeBtn.addEventListener('click',()=>{
+      const {perPerson,total,people,days} = calc();
+      const tourText = tourSelect.options[tourSelect.selectedIndex].text;
+      const payment = document.getElementById('payment').value;
+      const paymentLabel = document.getElementById('payment').options[document.getElementById('payment').selectedIndex].text;
+      const msg = `Olá! Gostaria de reservar: ${tourText}. Pessoas: ${people}. Dias: ${days}. Pagamento: ${paymentLabel}. Valor estimado: R$${total.toFixed(2).replace('.',',')}. Aguardando confirmação.`;
+      const url = 'https://wa.me/5542991392071?text=' + encodeURIComponent(msg);
+      window.open(url,'_blank');
+    });
+  </script>
 </body>
 </html>
